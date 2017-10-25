@@ -399,6 +399,7 @@ void * threadSegmentation(void * memory_size){
 	sem_finish = sem_open(SEM_TXT_FINISH,0);
 	
 	printf("\n ----- THREAD #%d VA A COMENZAR EL PROCESO-----\n", id);
+	printf("\n ----- THREAD #%d SOLICITO %d SEGMENTOS CON %d LINEAS -----\n", id,segments,lines);
 	if (key == -1) { 
 		printf ("Error con la llave key \n");
 		exit(1); 

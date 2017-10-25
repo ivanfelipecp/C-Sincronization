@@ -34,6 +34,7 @@ gcc -pthread -o Finalizador Finalizador.c && ./Finalizador
 #define SEM_TXT_DEATH "Semaforo_TXT_Muertos"
 #define SEM_TXT_FINISH "Semaforo_TXT_Wait"
 #define FILE_SIZE "size.txt"
+#define PRODUCTOR_KILL "kill -9 $(pidof Productor)"
 
 int getMemorySize(char * filename){
 	FILE *f = fopen(filename, "r");
@@ -69,6 +70,7 @@ void deleteMemory(char * fileKey, int k){
 
 int main(int argc, char const *argv[])
 {
+	system(PRODUCTOR_KILL);
 	deleteMemory(FILEKEY, KEY);
 	deleteSemaphore(SEM_MEM);
 	deleteSemaphore(SEM_TXT_FINISH);
